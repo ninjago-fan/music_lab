@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Music Lab</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Music Lab</p>
+          <h1>Instrument Mixer</h1>
+        </div>
+
+        <div class="transport">
+          <button id="playButton" class="primary">Play</button>
+          <button id="stopButton" class="secondary">Stop</button>
+          <label class="tempo-control">
+            <span>Tempo</span>
+            <input id="tempoSlider" type="range" min="60" max="180" value="110" />
+            <strong id="tempoValue">110 BPM</strong>
+          </label>
+        </div>
+      </header>
+
+      <main class="workspace">
+        <aside class="instrument-panel">
+          <div class="panel-header">
+            <h2>89 Instruments</h2>
+            <button id="previewSelected" class="ghost">Preview</button>
+          </div>
+          <div id="instrumentGrid" class="instrument-grid" aria-label="Instrument list"></div>
+        </aside>
+
+        <section class="sequencer-panel">
+          <div class="panel-header">
+            <h2>Pattern Builder</h2>
+            <button id="addTrackButton" class="primary">Add Track</button>
+          </div>
+          <div id="trackList" class="track-list"></div>
+        </section>
+      </main>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
