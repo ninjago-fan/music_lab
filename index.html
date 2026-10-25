@@ -9,39 +9,56 @@
   <body>
     <div class="app-shell">
       <header class="topbar">
-        <div>
+        <div class="title-wrap">
           <p class="eyebrow">Music Lab</p>
-          <h1>Instrument Mixer</h1>
-        </div>
-
-        <div class="transport">
-          <button id="playButton" class="primary">Play</button>
-          <button id="stopButton" class="secondary">Stop</button>
-          <label class="tempo-control">
-            <span>Tempo</span>
-            <input id="tempoSlider" type="range" min="60" max="180" value="110" />
-            <strong id="tempoValue">110 BPM</strong>
-          </label>
+          <h1>Song Builder</h1>
         </div>
       </header>
 
       <main class="workspace">
-        <aside class="instrument-panel">
+        <section class="lane-panel">
           <div class="panel-header">
-            <h2>89 Instruments</h2>
-            <button id="previewSelected" class="ghost">Preview</button>
+            <div>
+              <p class="panel-kicker">Layered composition</p>
+              <h2>Track lanes</h2>
+            </div>
+            <button id="addLaneButton" class="primary">Add lane</button>
           </div>
-          <div id="instrumentGrid" class="instrument-grid" aria-label="Instrument list"></div>
-        </aside>
 
-        <section class="sequencer-panel">
-          <div class="panel-header">
-            <h2>Pattern Builder</h2>
-            <button id="addTrackButton" class="primary">Add Track</button>
-          </div>
-          <div id="trackList" class="track-list"></div>
+          <div id="laneList" class="lane-list" aria-live="polite"></div>
         </section>
       </main>
+
+      <footer class="transport-bar">
+        <div class="transport-controls">
+          <button id="playButton" class="primary">Play</button>
+          <button id="stopButton" class="secondary">Stop</button>
+
+          <label class="field bpm-field">
+            <span>BPM</span>
+            <input id="bpmInput" type="number" min="60" max="180" value="110" />
+          </label>
+
+          <label class="field swing-field">
+            <span>Swing</span>
+            <input id="swingInput" type="range" min="0" max="50" value="0" />
+            <strong id="swingValue">0%</strong>
+          </label>
+
+          <label class="field">
+            <span>Tempo</span>
+            <select id="tempoSelect">
+              <option value="4/4" selected>4/4</option>
+              <option value="3/4">3/4</option>
+              <option value="6/8">6/8</option>
+              <option value="2/4">2/4</option>
+            </select>
+          </label>
+
+          <button id="saveSongButton" class="ghost">Save JSON</button>
+          <button id="exportSongButton" class="ghost">Export Song</button>
+        </div>
+      </footer>
     </div>
 
     <script src="script.js"></script>
