@@ -11,26 +11,10 @@
       <header class="topbar">
         <div class="title-wrap">
           <p class="eyebrow">Music Lab</p>
-          <h1>Song Builder</h1>
+          <h1>89 Instrument Lab</h1>
         </div>
-      </header>
 
-      <main class="workspace">
-        <section class="lane-panel">
-          <div class="panel-header">
-            <div>
-              <p class="panel-kicker">Layered composition</p>
-              <h2>Track lanes</h2>
-            </div>
-            <button id="addLaneButton" class="primary">Add lane</button>
-          </div>
-
-          <div id="laneList" class="lane-list" aria-live="polite"></div>
-        </section>
-      </main>
-
-      <footer class="transport-bar">
-        <div class="transport-controls">
+        <div class="transport">
           <button id="playButton" class="primary">Play</button>
           <button id="stopButton" class="secondary">Stop</button>
 
@@ -46,18 +30,86 @@
           </label>
 
           <label class="field">
-            <span>Tempo</span>
-            <select id="tempoSelect">
-              <option value="4/4" selected>4/4</option>
-              <option value="3/4">3/4</option>
-              <option value="6/8">6/8</option>
-              <option value="2/4">2/4</option>
+            <span>Key</span>
+            <select id="keySelect">
+              <option value="C">C</option>
+              <option value="G">G</option>
+              <option value="D">D</option>
+              <option value="A">A</option>
+              <option value="E">E</option>
+              <option value="F">F</option>
             </select>
           </label>
 
-          <button id="saveSongButton" class="ghost">Save JSON</button>
-          <button id="exportSongButton" class="ghost">Export Song</button>
+          <button id="saveSongButton" class="ghost">Save Song</button>
+          <button id="shareSongButton" class="ghost">Share</button>
         </div>
+      </header>
+
+      <main class="workspace">
+        <aside class="sidebar instrument-panel">
+          <div class="panel-header">
+            <div>
+              <p class="panel-kicker">Instrument bank</p>
+              <h2>Browser synth lab</h2>
+            </div>
+          </div>
+
+          <div class="bank-controls">
+            <input id="instrumentSearch" type="search" placeholder="Search instruments..." />
+
+            <div id="bankTabs" class="chip-row" aria-label="Instrument categories"></div>
+
+            <div class="chip-row compact">
+              <button type="button" class="toggle-filter active" data-filter="all">All</button>
+              <button type="button" class="toggle-filter" data-filter="favorite">Favorites</button>
+            </div>
+          </div>
+
+          <div id="instrumentGrid" class="instrument-grid" aria-live="polite"></div>
+        </aside>
+
+        <section class="sequencer-panel">
+          <div class="panel-header">
+            <div>
+              <p class="panel-kicker">Pattern editor</p>
+              <h2>Sequencer</h2>
+            </div>
+            <button id="addTrackButton" class="primary">Add track</button>
+          </div>
+
+          <div id="trackList" class="track-list" aria-live="polite"></div>
+        </section>
+
+        <aside class="sidebar editor-panel">
+          <div class="panel-header">
+            <div>
+              <p class="panel-kicker">Selected sound</p>
+              <h2>Preset editor</h2>
+            </div>
+          </div>
+
+          <div id="instrumentEditor" class="instrument-editor"></div>
+
+          <div class="song-panel">
+            <h3>Song</h3>
+            <div id="songSummary" class="song-summary"></div>
+          </div>
+
+          <div class="bottom-actions">
+            <button id="exportSongButton" class="ghost">Export JSON</button>
+          </div>
+        </aside>
+      </main>
+
+      <footer class="bottom-panel">
+        <div class="panel-header compact-header">
+          <div>
+            <p class="panel-kicker">Arrangement</p>
+            <h2>Pattern map</h2>
+          </div>
+        </div>
+        <div id="patternSummary" class="pattern-summary"></div>
       </footer>
     </div>
 
